@@ -11,10 +11,16 @@
   Welcome to BOOP!
 </h1>
 
-## TRY IT <a href="https://boop-eight.vercel.app/">HERE</a>
+The **ULTIMATE DECISION MAKER** for you and your equally indecisive buddies. Ever went to a mall and spent way too long deciding what to eat or where to go? Those days are in the past with BOOP! Everybody puts in their preferences (let's share the decision making load), and boop will pick one of the options at random. Voilà!
+
+<br>
+
+### TRY IT <a href="https://boop-eight.vercel.app/">HERE</a>
 
 <br>
 <br>
+
+# Instructions
 
 ## Start a boop 🚀
 
@@ -22,7 +28,7 @@
 
 <br>
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
+<div>
   <div>
     <h3>
       <span style="font-size: 25px; font-weight: 700">1. </span> 
@@ -61,6 +67,7 @@
       <span style="font-size: 25px; font-weight: 700">4. </span> 
       Boop it!
     </h3>
+    <p>Did the choice break the rules? Click the big turqoise circle to pick again</p>
     <img alt="boop it" src="./screenshots/final-choice.png" width="200" />
   </div>
 </div>
@@ -75,7 +82,7 @@
 
 <br>
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
+<div>
   <div>
     <h3>
       <span style="font-size: 25px; font-weight: 700">1. </span> 
