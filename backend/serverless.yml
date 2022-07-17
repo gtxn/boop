@@ -1,0 +1,101 @@
+service: boop-backend
+app: boop
+#org: your-org-name
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-1
+  websocketsApiName: boop-api
+  websocketsApiRouteSelectionExpression: $request.body.action
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action: "*"
+          Resource: "*"
+  environment:
+    BOOP_SOCKET_ROOM_TABLENAME: ${file(./envVariables.js):getEnvVars.BOOP_SOCKET_ROOM_TABLENAME}
+    BOOP_ROOM_INFO_TABLENAME: ${file(./envVariables.js):getEnvVars.BOOP_ROOM_INFO_TABLENAME}
+  logs:
+    websocket:
+      level: INFO
+
+functions:
+  conn-handler:
+    handler: functions/connectionFunction.handler
+    events:
+      - websocket:
+          route: $connect
+  disconn-handler:
+    handler: functions/disconnectionFunction.handler
+    events:
+      - websocket:
+          route: $disconnect
+  new-admin-handler:
+    handler: functions/newAdmin.handler
+    events:
+      - websocket:
+          route: newAdmin
+  new-user-handler:
+    handler: functions/newUser.handler
+    events:
+      - websocket:
+          route: newUser
+  user-make-choice-handler:
+    handler: functions/userMakeChoice.handler
+    events:
+      - websocket:
+          route: userMakeChoice
+  com-make-choice-handler:
+    handler: functions/comMakeChoice.handler
+    events:
+      - websocket:
+          route: comMakeChoice
+  destroy-room-handler:
+    handler: functions/destroyRoom.handler
+    events:
+      - websocket:
+          route: destroyRoom
+  get-decided-in-room-handler:
+    handler: functions/getDecidedInRoomFunc.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /getDecidedInRoom
+
+resources:
+  Resources:
+    boopSocketRoomTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${file(./envVariables.js):getEnvVars.BOOP_SOCKET_ROOM_TABLENAME}
+        AttributeDefinitions:
+          - AttributeName: socketId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: socketId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+    boopRoomInfoTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${file(./envVariables.js):getEnvVars.BOOP_ROOM_INFO_TABLENAME}
+        AttributeDefinitions:
+          - AttributeName: roomNumber
+            AttributeType: S
+        KeySchema:
+          - AttributeName: roomNumber
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"

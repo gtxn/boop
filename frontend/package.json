@@ -1,0 +1,34 @@
+{
+  "name": "boop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A website for you and your indecisive friends to make decisions quick.",
+  "author": "Glenda T",
+  "keywords": [
+    "gatsby",
+    "boop",
+    "spin the wheel",
+    "random",
+    "number",
+    "random number generator",
+    "friends"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "aws-amplify": "^4.3.27",
+    "babel-plugin-styled-components": "^2.0.7",
+    "gatsby": "^4.18.2",
+    "gatsby-plugin-styled-components": "^5.17.0",
+    "isomorphic-ws": "^5.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "socket.io-client": "^4.5.1",
+    "styled-components": "^5.3.5"
+  }
+}

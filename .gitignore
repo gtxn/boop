@@ -1,0 +1,15 @@
+.DS_STORE
+
+# Backend
+*.env
+*.serverless
+*.vscode
+*node_modules
+
+# Frontend
+*envConfig.js
+*envVariables.js
+*awsConfig.js
+*.cache
+*.vercel
+*public
