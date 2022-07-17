@@ -1,6 +1,6 @@
-<div align="center" style="background-color: #9453BC; border-radius: 20px;">
-  <img alt="Boop" src="./frontend/src/assets/images/boopLogo.png" 
-  width="160px" />
+<div align="center">
+  <img alt="Boop" src="./frontend/src/assets/images/boopRectLogo.png" 
+  width="80px" />
 </div>
 
 </br>
@@ -10,6 +10,11 @@
 >
   Welcome to BOOP!
 </h1>
+
+## TRY IT <a href="https://boop-eight.vercel.app/">HERE</a>
+
+<br>
+<br>
 
 ## Start a boop 🚀
 
@@ -149,6 +154,8 @@
 <br>
 
 ## Reflections 🪞
+
+---
 
 First time implementing websockets with serverless! It took a while to get used to,,, but hopefully the cost savings will make it worth while :D
 
